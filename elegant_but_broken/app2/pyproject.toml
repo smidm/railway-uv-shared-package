@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "app2"
+version = "0.1.0"
+description = "Broken demo app2 with relative local dependency"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "common",
+]
+
+[tool.uv.sources]
+common = { path = "../common" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

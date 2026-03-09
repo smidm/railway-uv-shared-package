@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "common"
+version = "0.1.0"
+description = "Shared package for broken local dependency demo"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+where = ["src"]
