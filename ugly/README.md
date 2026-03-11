@@ -28,7 +28,10 @@ uv run uvicorn app2.main:app --reload
 
 Railway setup:
 
-- root `railway.json` sets `build.builder = RAILPACK`
-- root `railway.json` dispatches by `RAILWAY_SERVICE_NAME` to app-local scripts:
-  - `app/build.sh`, `app/start.sh`
-  - `app2/build.sh`, `app2/start.sh`
+- repository root directory on Railway: `/ugly`
+- each app has its own Railway config:
+  - `app/railway.json`
+  - `app2/railway.json`
+- each service should use its own config file via CLI:
+  - `railway service link app && railway up --path-as-root app`
+  - `railway service link app2 && railway up --path-as-root app2`
